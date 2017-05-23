@@ -1,0 +1,230 @@
+<html>
+
+<script language="javascript">
+function addradio(id,divID)
+{
+    document.getElementById(divID).innerHTML=document.getElementById(divID).innerHTML+
+
+"<br>Câu"+id+""+
+"<input type='radio'  value='A' >A "+
+"<input type='radio'  value='B' >B "+
+"<input type='radio'  value='C' >C "+
+"<input type='radio'  value='D' >D "+
+
+"<select id="+id+">"+
+  "<option>False</option>"+
+  "<option>True</option>"+
+"</select>"
+"";
+
+  
+}
+
+
+</script>
+
+<script>
+  function createToeic() {
+    for (var i = 1; i <= 10; i++) {
+      addradio(i,"div1");
+    }
+    for (var i = 11; i <= 40; i++) {
+      addradio(i,"div2");
+    }
+    for (var i = 41; i <= 70; i++) {
+      addradio(i,"div3");
+    }
+    for (var i = 71; i <= 100; i++) {
+      addradio(i,"div4");
+    }
+    for (var i = 101; i <= 140; i++) {
+      addradio(i,"div5");
+    }
+    for (var i = 141; i <= 152; i++) {
+      addradio(i,"div6");
+    }
+    for (var i = 153; i <= 200; i++) {
+      addradio(i,"div7");
+    } 
+
+document.getElementById("start").style.display  = "none";
+  }
+
+</script>
+<script>
+  function countReading(){
+    var Read = 0;
+for (var i =101; i <=200; i++) {
+ if(document.getElementById(i).value=="True"){
+      Read=Read+1;
+    }
+  
+  }
+  return Read;
+}
+
+  function countListening(){
+    var Listen = 0;
+for (var i =1; i <=100; i++) {
+ if(document.getElementById(i).value=="True"){
+      Listen=Listen+1;
+    }
+  
+  }
+  return Listen;
+}
+  function getPart1(){
+    var part1=0;
+    for (var i = 1; i <=10; i++) {
+      if (document.getElementById(i).value == "True") {
+        part1= part1+1;
+    }
+  }
+    return part1;
+  }
+  function getPart2(){
+    var part2=0;
+    for (var i = 11; i <=40; i++) {
+      if (document.getElementById(i).value == "True") {
+        part2= part2+1;
+    }
+  }
+    return part2;
+  }
+  function getPart3(){
+    var part3=0;
+    for (var i = 41; i <=70; i++) {
+      if (document.getElementById(i).value == "True") {
+        part3= part3+1;
+    }
+  }
+    return part3;
+  }
+  function getPart4(){
+    var part4=0;
+    for (var i = 71; i <=100; i++) {
+      if (document.getElementById(i).value == "True") {
+        part4= part4+1;
+    }
+  }
+    return part4;
+  }
+  function getPart5(){
+    var part5=0;
+    for (var i = 101; i <=140; i++) {
+      if (document.getElementById(i).value == "True") {
+        part5= part5+1;
+    }
+  }
+    return part5;
+  }
+  function getPart6(){
+    var part6=0;
+    for (var i = 141; i <=152; i++) {
+      if (document.getElementById(i).value == "True") {
+        part6= part6+1;
+    }
+  }
+    return part6;
+  }
+  function getPart7(){
+    var part7=0;
+    for (var i = 153; i <=200; i++) {
+      if (document.getElementById(i).value == "True") {
+        part7= part7+1;
+    }
+  }
+    return part7;
+  }
+</script>
+
+<script>
+
+
+function countAll(){
+    var Read = countReading();
+    var Listen = countListening();
+    var part1 = getPart1().toString();
+    var part2 = getPart2().toString();
+    var part3 = getPart3().toString();
+    var part4 = getPart4().toString();
+    var part5 = getPart5().toString();
+    var part6 = getPart6().toString();
+    var part7 = getPart7().toString();
+
+
+    document.getElementById("rPart1").innerHTML = part1;
+    document.getElementById("rPart2").innerHTML = part2;
+    document.getElementById("rPart3").innerHTML = part3;
+    document.getElementById("rPart4").innerHTML = part4;
+    document.getElementById("rPart5").innerHTML = part5;
+    document.getElementById("rPart6").innerHTML = part6;
+    document.getElementById("rPart7").innerHTML = part7;
+    alert("Listenning: "+Listen+"---Reading:"+Read);
+  }
+
+</script>
+
+<body>
+
+<div  style="margin: auto; position: fixed;top: 10px;">
+  <input id="start" type="button" value="Start" onClick="createToeic()">
+  <input type="button" onclick="countAll()" value="Submit">
+</div>
+
+
+<div id="mydiv1" style="width: 25%;float: left;">
+  <h4>Part 1</h4>
+  <div id="div1"></div>
+  <h5>Result Part 1:</h5>
+  <div id="rPart1"></div>
+  
+</div>
+
+<div id="mydiv2" style="width: 25%;float: left;">
+  <h4>Part 2</h4>
+  <div id="div2"></div>
+  <h5>Result Part 2:</h5>
+  <h5 id="rPart2"></h5>
+</div>
+<div id="mydiv3" style="width: 25%;float: left;">
+  <h4>Part 3</h4>
+  <div id="div3"></div>
+  <h5>Result Part 3:</h5>
+  <h5 id="rPart3"></h5>
+</div>
+<div id="mydiv4" style="width: 25%;float: left;">
+  <h4>Part 4</h4>
+  <div id="div4"></div>
+  <h5>Result Part 4:</h5>
+  <h5 id="rPart4"></h5>
+</div>
+<hr>
+<div id="mydiv5" style="width: 25%;float: left; ">
+  <h4>Part 5</h4>
+  <div id="div5"></div>
+  <h5>Result Part 5:</h5>
+  <h5 id="rPart5"></h5>
+
+</div>
+<div id="mydiv6" style="width: 25%;float: left;">
+  <h4>Part 6</h4>
+  <div id="div6"></div>
+  <h5>Result Part 6:</h5>
+  <h5 id="rPart6"></h5>
+</div>
+<div id="mydiv7" style="width: 25%;float: left;">
+  <h4>Part 7</h4>
+  <div id="div7"></div>
+  <h5>Result Part 7:</h5>
+  <h5 id="rPart7"></h5>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
